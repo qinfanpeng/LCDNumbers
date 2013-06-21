@@ -3,7 +3,7 @@
 # 以LCD字样打印数字‘0’
 # size: 字样大小， 默认为 1
 def p0(size=1)
-  s = " #{ '-' * size } \n"
+  s = " #{ '_' * size } \n"
   size.times do
     s << "|#{ ' ' * size}|\n"
   end
@@ -86,9 +86,11 @@ end
 # 6
 def p6(size=1)
   s = " #{ '_' * size }\n"
-  s << "|#{ ' ' * size } \n"
-  s << "|#{ '_' * size } \n"
   size_1 = size - 1
+  size_1.times do
+    s << "|#{ ' ' * size } \n"
+  end
+  s << "|#{ '_' * size } \n"
   size_1.times do
     s << "|#{ ' ' * size }|\n"
   end
@@ -133,7 +135,7 @@ def p9(size=1)
 end
 
 
-def print_number(size=1, nums)
+def print_lcd_numbers(size=1, nums)
   lines_size = size*2 + 1    # 每一个lcd数字的函数一定为 size*2+1
   lines = Array.new(lines_size, '')
   nums.split('').each do |n|
@@ -147,7 +149,7 @@ def print_number(size=1, nums)
   end
 end
 
-print_number 2, "012346789"  # 按照尺寸为2打印 0 ~ 9
+print_lcd_numbers(1, "012346789")  # 按照尺寸为2打印 0 ~ 9
 
 
 
